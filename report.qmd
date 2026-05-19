@@ -1,0 +1,38 @@
+# 独立报告与提交文件
+
+项目根目录下的 `report.html` 是由 `03_analysis.ipynb` 导出的独立分析报告。报告内容包括：
+
+- 数据说明。
+- 清洗说明。
+- 描述统计。
+- 图表分析。
+- CAPM 回归。
+- 宏观指标回归。
+- 综合结论。
+
+在线报告副本位于 Quarto Book 的 `docs/report.html`：
+
+[打开完整分析报告](report.html)
+
+## 提交清单
+
+本项目包含以下核心文件：
+
+- `README.md`
+- `requirements.txt`
+- `.gitignore`
+- `download_log.txt`
+- `01_download.ipynb`
+- `02_clean.ipynb`
+- `03_analysis.ipynb`
+- `report.html`
+- `docs/`
+- `data/clean/`
+- `data/combined/`
+- `output/`
+
+## GitHub Pages
+
+Pages 地址：
+
+[https://loonghaowen.github.io/dshw-p01/](https://loonghaowen.github.io/dshw-p01/)

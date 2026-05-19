@@ -1,0 +1,31 @@
+# 数据清洗
+
+清洗工作在 `02_clean.ipynb` 中完成，主要产出为：
+
+- `data/clean/stock_clean.csv`
+- `data/clean/stock_clean.parquet`
+- `data/clean/stock_close_wide.csv`
+- `data/clean/stock_close_long.csv`
+- `data/combined/stock_index_daily.csv`
+- `data/combined/combined_data.csv`
+
+## 单表清洗
+
+对每只股票的原始行情表分别执行以下步骤：
+
+1. 缺失值检测：统计每列缺失值数量和比例，并制成表格。
+2. 缺失值处理：对价格和交易字段使用向前填充；仍无法补齐的关键数值行删除。
+3. 日期格式统一：将日期列转换为 `datetime64[ns]`，并作为时间索引。
+4. 数据类型检查：将价格、成交量和成交额转换为数值型。
+5. 重复值处理：按 `date + code` 检测重复行并删除。
+6. 离群值标注：计算日收益率，将单日涨跌幅超过 +/-20% 的记录标注为 `is_extreme=True`。
+
+## 宽表与长表
+
+宽表将日期作为索引、股票代码作为列，适合计算相关系数矩阵、组合收益和多资产走势对比。
+
+长表以 `date, code, close` 为字段，适合分组统计、面板回归、可视化和多表合并。
+
+## 多表合并
+
+个股日度数据与指数日度数据按 `date` 做 left join。月度宏观指标通过 `YYYY-MM` 月份键映射到对应月份的每日交易记录，从而处理宏观低频数据和股票高频数据之间的频率不一致问题。

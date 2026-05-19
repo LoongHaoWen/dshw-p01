@@ -55,6 +55,7 @@ CSV 的优点是简单、透明、跨平台，几乎所有数据分析工具都�
 
 - GitHub 仓库：https://github.com/LoongHaoWen/dshw-p01
 - GitHub Pages：https://loonghaowen.github.io/dshw-p01/
+- Quarto Online Book：仓库包含 `_quarto.yml`、`*.qmd` 章节和 `.github/workflows/quarto-pages.yml`，推送到 `main` 后由 GitHub Actions 自动渲染并部署到 GitHub Pages。
 
 ## 如何运行
 
@@ -63,3 +64,4 @@ CSV 的优点是简单、透明、跨平台，几乎所有数据分析工具都�
 3. 运行 `02_clean.ipynb` 清洗并存储数据
 4. 运行 `03_analysis.ipynb` 查看分析结果
 5. 打开 `report.html` 阅读完整报告
+6. 如需本地渲染 Quarto Book：安装 Quarto 后运行 `quarto render`

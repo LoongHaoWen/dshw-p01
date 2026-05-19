@@ -1,0 +1,29 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "P01：金融数据获取、管理与初步分析"
+  author: "LoongHaoWen"
+  site-url: "https://loonghaowen.github.io/dshw-p01/"
+  repo-url: "https://github.com/LoongHaoWen/dshw-p01"
+  repo-actions: [source]
+  chapters:
+    - index.qmd
+    - data.qmd
+    - cleaning.qmd
+    - analysis.qmd
+    - regression.qmd
+    - report.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    css: styles.css
+
+execute:
+  freeze: auto

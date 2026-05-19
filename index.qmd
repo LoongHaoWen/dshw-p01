@@ -1,0 +1,38 @@
+---
+title: "项目概览"
+---
+
+# P01：金融数据获取、管理与初步分析
+
+本在线书是 `dshw-p01` 项目的 Quarto Book 版本，用于集中展示数据获取、清洗、存储、统计分析、图形输出、CAPM 回归和最终报告。
+
+项目 GitHub 仓库：[https://github.com/LoongHaoWen/dshw-p01](https://github.com/LoongHaoWen/dshw-p01)
+
+项目报告入口：[report.html](report.html)
+
+## 数据范围
+
+- 样本区间：2020-01-01 至最新下载日期。
+- 股票样本：10 只 A 股热门股票。
+- 覆盖行业：银行、汽车、房地产、白酒、能源、通讯、物流。
+- 市场基准：沪深 300。
+- 辅助指数：上证综指。
+- 宏观指标：CPI 同比、人民币/美元汇率、M2 同比、1 年期 LPR、工业增加值增速。
+- 财务指标：ROE、净利润率、资产负债率、营业收入增速。
+
+## 项目文件
+
+- `01_download.ipynb`：下载或验证原始数据，并写入 `download_log.txt`。
+- `02_clean.ipynb`：完成数据清洗、宽长表转换、多表合并，并保存 CSV 与 Parquet。
+- `03_analysis.ipynb`：完成统计、图表、CAPM 和宏观回归。
+- `report.html`：由分析 Notebook 导出的独立报告。
+
+## 如何复现
+
+```bash
+pip install -r requirements.txt
+jupyter nbconvert --to notebook --execute 01_download.ipynb --inplace
+jupyter nbconvert --to notebook --execute 02_clean.ipynb --inplace
+jupyter nbconvert --to notebook --execute 03_analysis.ipynb --inplace
+jupyter nbconvert --to html --no-input 03_analysis.ipynb --output report.html
+```
